@@ -1,0 +1,18 @@
+Wer ist der director von Matrix
+SELECT director FROM Movie WHERE name="The Matrix"
+
+Welche Filme sind nach 2010 veröffentlich worden?
+SELECT name,year FROM movie WHERE year > 2010
+
+Was ist der älteste Film in der Datenbank?
+SELECT name,year FROM Movie ORDER BY year LIMIT 1
+
+Welche Filme sind von Warner Bros produziert worden?
+SELECT * FROM Movie WHERE studio="Warner Bros"
+
+Welche ist der meist angesehene Film?
+- unmöglich mit den gegebenen Daten
+
+Welche director haben mehrere Filme gemacht
+SELECT anzahl_filme, director FROM (SELECT *, COUNT(*) AS anzahl_filme FROM Movie GROUP BY director) WHERE anzahl_filme>1
+
