@@ -15,4 +15,7 @@ interface MovieDao {
     @Query("SELECT * FROM movie")
     fun getAll(): LiveData<List<Movie>>
 
+    @Query("SELECT (SELECT COUNT(*) FROM movie) == 0")
+    fun isEmpty(): Boolean
+
 }

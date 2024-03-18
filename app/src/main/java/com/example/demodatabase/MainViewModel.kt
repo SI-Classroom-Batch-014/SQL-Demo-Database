@@ -14,7 +14,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val repository = Repository(getDatabase(application))
 
-    val data = repository.apartments
+    val data = repository.movies
 
     init {
         viewModelScope.launch(Dispatchers.IO) {

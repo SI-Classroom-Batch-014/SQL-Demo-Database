@@ -5,11 +5,13 @@ import com.example.demodatabase.db.model.Movie
 
 class Repository(private val database: MovieDatabase) {
 
-    val apartments: LiveData<List<Movie>> = database.appartmentDao.getAll()
+    val movies: LiveData<List<Movie>> = database.movieDao.getAll()
 
     suspend fun prepopulateDB() {
         try {
-            database.appartmentDao.insertAll(DataSource.movies)
+            if (database.movieDao.isEmpty()) {
+                database.movieDao.insertAll(DataSource.movies)
+            }
         } catch (e: Exception) {
             e.printStackTrace()
         }
